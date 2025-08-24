@@ -17,13 +17,18 @@ body {
 /* Navigation section */
 .nav-section {
     background-color: #6aa9ce;
+    position: relative;
+}
+
+.nav-toggle {
+    display: none;
 }
 
 .nav-section nav {
     display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    font-size: 24px;
+    flex-direction: column;
+    padding: 10px 20px;
+    font-size: 18px;
     font-family: "Montserrat", sans-serif;
 }
 
@@ -32,24 +37,20 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
 
+.nav-section a:last-child {
+    border-bottom: none;
 }
 
 .nav-section a:hover {
     color: #094b67;
 }
 
-@media (min-width: 769px) {
-    .nav-section nav {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-}
-
-.nav-toggle {
-    display: none;
-}
-
+/* Mobile navigation toggle */
 @media (max-width: 768px) {
     .nav-toggle {
         display: block;
@@ -87,9 +88,6 @@ body {
         border-bottom: none;
     }
 }
-
-
-
 
 /* --------HEADER STYLES-------- */
 .hero {
