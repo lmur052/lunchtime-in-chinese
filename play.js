@@ -663,7 +663,7 @@ const scrambledData = [
                 const ball = document.createElement("div");
                 ball.className = "soccer-ball";
                 ball.dataset.answer = option;
-                ball.innerHTML = `<img src="soccer/soccer-ball.png" alt="Soccer Ball"><span>${option}</span>`;
+                ball.innerHTML = `<img src="soccer/Soccer-Ball.png" alt="Soccer Ball"><span>${option}</span>`;
                 soccerBallsContainer.appendChild(ball);
 
                 ball.addEventListener("click", () => {
