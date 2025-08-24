@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunchtime in Chinese</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+
+<!-- Navigation links: -->
+<div class="nav-section">
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="food.html">Food</a>
+        <a href="play.html">Play</a>
+        <a href="chat.html">Coming Soon</a>
+    </nav>
+</div>
+
+<body>
+    <div class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>LUNCHTIME</h1>
+                <h1 id="h1-part-two">IN CHINESE</h1>
+                <p>Let's learn Mandarin</p>
+            </div>
+            <div class="hero-characters">
+                <img src="Characters3.png">
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+        VOCAB BUILDER
+=========================================================-->
+    <main class="main-content">
+        <!-- Flashcards Section -->
+        <div class="flashcards-section">
+            <section class="game-section" id="flashcards">
+                <div class="game-header">
+                    <h2>FLASHCARDS</h2>
+                </div>
+                <div class="cards-container">
+                    <!-- Flashcards will be inserted here by JavaScript -->
+                </div>
+                <div class="game-button-container">
+                    <button id="test-button" class="game-button">Test Your Knowledge!</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Matching Game (hidden initially) -->
+        <div class="matching-game-section">
+            <section class="game-section" id="matching-game" style="display:none;">
+                <div class="game-button-container">
+                    <button id="reset-button" class="game-button">&larr; Back</button>
+                </div>
+                <div class="game-header">
+                    <h2>Match the Chinese Characters</h2>
+                </div>
+                <div class="drag-characters">
+                    <!-- Characters will be inserted here -->
+                </div>
+                <div class="english-cards-grid">
+                    <!-- Cards will be inserted here -->
+                </div>
+                <div id="completion-popup" class="popup-overlay" style="display:none;">
+                    <div class="popup-content">
+                        <h2>🎉 Great job!</h2>
+                        <p>You matched all the words correctly!</p>
+                        <button id="popup-back-btn">Back to Flashcards</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- =========================================================
+        SENTENCE BUILDER
+=========================================================-->
+
+        <!-- Sentences Section -->
+        <div class="sentence-builder-section">
+            <h2>SENTENCE BUILDER</h2>
+            <div id="sentence-builder" class="game-container">
+                <div class="game-mask">
+                    <h2>Ready to build sentences?</h2>
+                    <div class="game-mask-image">
+                        <img src="sentence-builder/sentence-builder-guide.png">
+                    </div>
+                    <div class="game-button-container">
+                        <button id="start-scrambled-game-alt" class="start-button">Level 1</button>
+                        <button id="start-sentence-game" class="start-button">Level 2</button>
+                    </div>
+                </div>
+
+                <!-- Sentence Builder -->
+                <div class="game-area" id="sentence-builder-area" style="display:none;">
+                    <div>
+                        <h2 id="header-main">HEADING</h2>
+                    </div>
+                    <div class="game-button-container">
+                        <button id="reset-sentence-builder-button" class="game-button">Reset</button>
+                    </div>
+                    <div class="sentence-builder-container">
+                        <div class="builder-image">
+                            <img src="sentence-builder/sentence-builder-guide.png">
+                        </div>
+                        <div class="sentence-builder-components">
+                            <div class="english-prompt"></div>
+                            <div class="chinese-target"></div>
+                        </div>
+                    </div>
+                    <div class="word-pieces"></div>
+                </div>
+
+                <!-- Scrambled Sentences (moved here, hidden by default) -->
+                <div class="game-area" id="scrambled-sentences-area" style="display:none;">
+                    <h2>Practice Matching English & Chinese Sentences</h2>
+                    <div class="game-button-container">
+                        <button id="reset-scrambled-button" class="game-button">Reset</button>
+                    </div>
+                    <div class="scrambled-sentence-activity">
+                        <div class="english-sentence-container">
+                            <div class="english-sentence" id="english-sentence"></div>
+                            <button class="audio-btn" id="play-audio">🔊</button>
+                        </div>
+                        <div class="slots" id="slots"></div>
+                        <div class="word-bank" id="word-bank"></div>
+                        <div class="progress" id="progress"></div>
+                    </div>
+                </div>
+
+                <div class="completion-popup" style="display:none;">
+                    <h2>Congratulations! 🎉</h2>
+                    <p>You've built all the sentences correctly!</p>
+                    <button id="close-popup">Close</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- =========================================================
+        SOCCER ACTIVITY
+=========================================================-->
+
+        <div class="soccer-math-section">
+            <h2>FILL THE GAP ACTIVITY</h2>
+            <p id="soccer-gap-fill-instructions">Fill in the gap by kicking the correct soccerball.</p>
+            <div id="soccer-math" class="game-container">
+
+                <!-- New sentence container -->
+                <div class="sentence-container">
+                    <p class="soccer-english-sentence"></p>
+                    <p class="soccer-question"></p>
+                </div>
+
+                <!-- Goal -->
+                <div class="soccer-goal">
+                    <img src="soccer/soccer-goal.png" alt="Soccer Goal">
+                </div>
+
+                <!-- Balls container -->
+                <div class="soccer-balls"></div>
+
+                <div class="game-button-container">
+                    <button id="soccer-reset-button" class="game-button">Reset</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="play.js"></script>
+</body>
+
+</html>
