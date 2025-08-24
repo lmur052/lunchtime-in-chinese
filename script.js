@@ -7,47 +7,6 @@
    ========================================================= */
 
 
-
-   document.addEventListener('DOMContentLoaded', function() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-section nav');
-    
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            // Toggle the active class on the navigation menu
-            navMenu.classList.toggle('active');
-            
-            // Change the icon based on menu state
-            if (navMenu.classList.contains('active')) {
-                this.innerHTML = '✕'; // Close icon
-            } else {
-                this.innerHTML = '☰'; // Hamburger icon
-            }
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideNav = navMenu.contains(event.target) || navToggle.contains(event.target);
-            
-            if (!isClickInsideNav && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                navToggle.innerHTML = '☰';
-            }
-        });
-        
-        // Close menu when a nav link is clicked (for single page applications)
-        const navLinks = document.querySelectorAll('.nav-section a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth < 769) {
-                    navMenu.classList.remove('active');
-                    navToggle.innerHTML = '☰';
-                }
-            });
-        });
-    }
-});
-
 /* =========================================================
    1. VOCABULARY FLASHCARDS & MATCHING GAME
    ========================================================= */
