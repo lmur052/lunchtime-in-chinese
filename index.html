@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunchtime in Chinese</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +21,13 @@
         <a href="chat.html">Coming Soon</a>
     </nav>
 </div>
+
+<button class="nav-toggle">☰</button>
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+});
+</script>
 
 <body>
     <div class="hero">

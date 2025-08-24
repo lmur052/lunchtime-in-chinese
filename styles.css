@@ -46,6 +46,36 @@ body {
     }
 }
 
+.nav-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: #f9feff;
+        cursor: pointer;
+        z-index: 100;
+    }
+    
+    .nav-section nav {
+        display: none;
+        padding: 50px 20px 20px;
+    }
+    
+    .nav-toggle.active + nav {
+        display: flex;
+    }
+}
+
+
+
 
 /* --------HEADER STYLES-------- */
 .hero {
@@ -225,7 +255,7 @@ WELCOME
 
 
 .image-button-item {
-    width: 375px;
+    width: 300px;
     text-align: center;
     transition: transform 0.3s ease;
 }
@@ -236,8 +266,8 @@ WELCOME
 
 
 .image-wrapper img {
-    width: 375px;
-    height: 300px;
+    width: 300px;
+    height: 240px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
@@ -263,33 +293,6 @@ WELCOME
     background-color: #6aa9ce;
 }
 
-@media (max-width: 900px) {
-    .image-buttons-container {
-        gap: 20px;
-    }
-
-    .image-button-item {
-        width: 220px;
-    }
-
-    .image-wrapper {
-        width: 180px;
-        height: 180px;
-    }
-}
-
-@media (max-width: 768px) {
-    .image-buttons-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .image-button-item {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 30px;
-    }
-}
 
 /* =========================================================
    1. VOCABULARY FLASHCARDS & MATCHING GAME
@@ -1093,7 +1096,7 @@ WELCOME
     }
 
     .sentence-builder-components {
-        width: 100%;
+        width: 80%;
         margin-top: 0;
     }
 }
