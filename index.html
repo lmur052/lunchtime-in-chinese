@@ -20,14 +20,13 @@
         <a href="play.html">Play</a>
         <a href="chat.html">Coming Soon</a>
     </nav>
+    <button class="nav-toggle">☰</button>
+    <script>
+        document.querySelector('.nav-toggle').addEventListener('click', function () {
+            this.classList.toggle('active');
+        });
+    </script>
 </div>
-
-<button class="nav-toggle">☰</button>
-<script>
-document.querySelector('.nav-toggle').addEventListener('click', function() {
-    this.classList.toggle('active');
-});
-</script>
 
 <body>
     <div class="hero">
@@ -46,15 +45,16 @@ document.querySelector('.nav-toggle').addEventListener('click', function() {
     <!-- =========================================================
         WELCOME
 =========================================================-->
-        <main class="main-content">
+    <main class="main-content">
         <!-- Flashcards Section -->
         <div class="welcome-section">
             <section class="welcome-section" id="welcome">
                 <div class="welcome-header">
                     <h2>现在是午饭时间。</h2>
                 </div>
-                <p>It's lunchtime. Join us as we eat, play and explore— <br>while learning simple Chinese phrases along the way.</p>
-                
+                <p>It's lunchtime. Join us as we eat, play and explore— <br>while learning simple Chinese phrases along
+                    the way.</p>
+
                 <!-- Image buttons section -->
                 <div class="image-buttons-section">
                     <div class="image-buttons-container">
@@ -65,7 +65,7 @@ document.querySelector('.nav-toggle').addEventListener('click', function() {
                             </div>
                             <button class="btn-image" onclick="window.location.href='food.html'">Let's Eat</button>
                         </div>
-                        
+
                         <!-- Play Item -->
                         <div class="image-button-item">
                             <div class="image-wrapper" onclick="window.location.href='play.html'">
@@ -73,7 +73,7 @@ document.querySelector('.nav-toggle').addEventListener('click', function() {
                             </div>
                             <button class="btn-image" onclick="window.location.href='play.html'">Let's Play</button>
                         </div>
-                        
+
                         <!-- Coming Soon Item -->
                         <div class="image-button-item">
                             <div class="image-wrapper" onclick="window.location.href='chat.html'">
