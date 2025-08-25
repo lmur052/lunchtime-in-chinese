@@ -39,10 +39,11 @@ body {
     color: #094b67;
 }
 
-@media (min-width: 769px) {
+@media (max-width: 768px) {
     .nav-section nav {
         flex-direction: row;
         justify-content: space-around;
+        font-size: 16px;
     }
 }
 
@@ -106,6 +107,40 @@ body {
 }
 
 
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+
+    }
+
+    .hero-characters {
+        display: flex;
+        justify-content: center;
+        /* center horizontally */
+        width: 100%;
+    }
+
+    .hero-characters img {
+        max-width: 70%;
+        /* shrink image */
+        height: auto;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .hero p {
+        font-size: 2rem;
+    }
+
+}
+
 /* --------MAIN CONTENT CONTAINER-------- */
 .main-content {
     padding: 20px;
@@ -116,7 +151,7 @@ body {
 }
 
 /* Make all grid layouts responsive */
-.cards-container, 
+.cards-container,
 .english-cards-grid,
 .image-buttons-container {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -129,14 +164,15 @@ body {
     max-width: 100%;
 }
 
-@media (max-width: 480px) {
-    .cards-container, 
+@media (max-width: 768px) {
+
+    .cards-container,
     .english-cards-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2, 1fr;
     }
-    
+
     .image-buttons-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 2, 1fr;
     }
 }
 
@@ -211,8 +247,10 @@ WELCOME
 .image-buttons-section {
     background-color: transparent;
     padding: 10px;
-    display: flex;          /* add flexbox */
-    justify-content: center;/* center the child container */
+    display: flex;
+    /* add flexbox */
+    justify-content: center;
+    /* center the child container */
 }
 
 .image-buttons-container {
@@ -263,33 +301,20 @@ WELCOME
     background-color: #6aa9ce;
 }
 
-@media (max-width: 900px) {
-    .image-buttons-container {
-        gap: 20px;
-    }
-
-    .image-button-item {
-        width: 220px;
-    }
-
-    .image-wrapper {
-        width: 180px;
-        height: 180px;
-    }
-}
-
 @media (max-width: 768px) {
     .image-buttons-container {
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        justify-items: center;
     }
 
     .image-button-item {
         width: 100%;
         max-width: 300px;
-        margin-bottom: 30px;
     }
 }
+
 
 /* =========================================================
    1. VOCABULARY FLASHCARDS & MATCHING GAME
@@ -580,6 +605,40 @@ WELCOME
         transform: translateX(5px);
     }
 }
+
+/* Mobile: 2 columns of 4 cards */
+@media (max-width: 768px) {
+
+    /* Flashcards */
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        gap: 10px;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .card {
+        width: 150px;
+        height: 120px;
+    }
+
+    /* Matching Game */
+    .english-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        gap: 10px;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .english-card,
+    .bilingual-card {
+        width: 150px;
+        min-height: 120px;
+    }
+}
+
 
 .correct-match {
     animation: pulse 0.5s ease;
@@ -1096,6 +1155,32 @@ WELCOME
         width: 100%;
         margin-top: 0;
     }
+
+    @media (max-width: 768px) {
+
+        .game-button-container {
+            justify-content: center;
+            justify-items: center;
+        }
+
+        .game-button {
+            display: block;
+            margin: 0 auto;
+            max-width: 300px;
+            padding: 12px 30px;
+            font-size: 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #reset-button {
+            font-size: 12px;
+            padding: 10px 20px;
+            margin-right: 40px;
+        }
+    }
+
 }
 
 .completion-popup {
@@ -1182,10 +1267,6 @@ WELCOME
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
     .game-button {
         margin: 10px 0;
         display: block;
@@ -1210,6 +1291,63 @@ WELCOME
         padding: 15px;
     }
 }
+
+
+
+
+/* Scrambled Sentences + Sentence Builder mobile adjustments */
+@media (max-width: 768px) {
+    /* Limit overall width */
+    #scrambled-sentences,
+    .game-container {
+        padding: 15px;    /* reduce padding so it doesn’t feel cramped */
+        min-height: 500px; /* give more vertical space */
+    }
+
+    /* English sentence box */
+    #scrambled-sentences .english-sentence,
+    #scrambled-sentences-area .english-sentence {
+        width: 100%;       /* take full width */
+        max-width: 320px;  /* prevent it from being too wide */
+        font-size: 14px;   /* scale text down */
+        padding: 8px 15px;
+    }
+
+    /* Slots (drop zones) */
+    #scrambled-sentences .slot,
+    #scrambled-sentences-area .slot {
+        width: 70px;
+        height: 80px;
+        font-size: 12px;
+    }
+
+    /* Word bank items (tiles/blocks) */
+    #scrambled-sentences .word-block,
+    #scrambled-sentences-area .word-block,
+    .word-piece {
+        width: 60px;
+        height: 50px;
+        font-size: 16px; /* smaller characters */
+        padding: 6px 8px;
+    }
+
+    }
+
+    /* Buttons */
+    #reset-scrambled-button,
+    #reset-sentence-builder-button {
+        font-size: 14px;
+        padding: 8px 15px;
+        margin: 5px auto;
+        display: block;
+    }
+
+
+
+
+
+
+
 
 
 
