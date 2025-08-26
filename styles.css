@@ -1159,8 +1159,12 @@ WELCOME
     }
 
 
-    #scrambled-sentences .slots, .word-bank {
-        width: 90%
+    #scrambled-sentences .slots,
+    .word-bank {
+        width: 90%;
+        margin: 20px;
+        display: grid;
+        grid-template-columns: (2, auto);
     }
 
     .english-prompt {
@@ -1319,6 +1323,14 @@ WELCOME
 
 @media (max-width: 500px) {
 
+    #scrambled-sentences .slots,
+    .word-bank {
+        width: 90%;
+        margin: 20px;
+        display: grid;
+        grid-template-columns: (2, auto);
+    }
+
     .drag-character {
         font-size: 16px;
         padding: 10px 5px;
@@ -1351,7 +1363,7 @@ WELCOME
         width: 90%;
     }
 
-    
+
 }
 
 
