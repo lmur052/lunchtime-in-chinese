@@ -55,12 +55,9 @@ body {
     .gap-fill-section,
     .soccer-math-section {
         width: 100%;
-        /* full width of container, not viewport */
-        margin-left: 0;
         left: 0;
         right: 0;
         padding-left: 10px;
-        /* optional for spacing */
         padding-right: 10px;
         box-sizing: border-box;
     }
@@ -160,11 +157,8 @@ body {
 
 /* --------MAIN CONTENT CONTAINER-------- */
 .main-content {
-    padding: 20px;
-    max-width: 1100px;
-    margin: 20px auto;
+    margin: 0px auto;
     justify-content: center;
-
 }
 
 /* Make all grid layouts responsive */
@@ -196,7 +190,6 @@ body {
 /* --------GAME SECTION FRAMEWORK-------- */
 .game-section {
     width: 100%;
-    max-width: 1100px;
     margin: 0 auto 40px;
     padding: 5px;
     border-radius: 6px;
@@ -339,10 +332,11 @@ WELCOME
 .flashcards-section {
     background-color: transparent;
     padding: 10px 10px;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    left: 50%;
-    right: 50%;
+    width: 100%;
+}
+
+#flashcards, #matching-game {
+max-width: 1100px;
 }
 
 .cards-container {
@@ -422,10 +416,7 @@ WELCOME
 .matching-game-section {
     background-color: transparent;
     padding: 10px 10px;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    left: 50%;
-    right: 50%;
+    width: 100%;
 }
 
 .drag-characters {
@@ -623,10 +614,12 @@ WELCOME
     }
 }
 
-/* Mobile: 2 columns of 4 cards */
 @media (max-width: 768px) {
 
     /* Flashcards */
+
+
+
     .cards-container {
         grid-template-columns: repeat(2, auto);
         gap: 10px;
@@ -1080,10 +1073,7 @@ WELCOME
     justify-content: center;
     align-items: center;
     padding: 30px 10px;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    left: 50%;
-    right: 50%;
+    width: 100%;
 }
 
 #reset-scrambled-button,
@@ -1441,10 +1431,7 @@ WELCOME
 .gap-fill-section {
     background-color: #fffdf4;
     padding: 30px 10px;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    left: 50%;
-    right: 50%;
+    width: 100%;
     background-image: url(hero-background01.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -1683,14 +1670,12 @@ WELCOME
 .soccer-math-section {
     background-color: #fffdf4;
     padding: 30px 10px;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    left: 50%;
-    right: 50%;
+    width: 100%;
     background-image: url(hero-background01.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    line-height: 1.2;
 }
 
 .soccer-math-section h2 {
@@ -1714,7 +1699,7 @@ WELCOME
     position: relative;
     width: 100%;
     max-width: 1000px;
-    margin: 0 auto;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1863,13 +1848,17 @@ WELCOME
 
 @media (max-width: 768px) {
     .bento-options {
-        display: grid;
-        grid-template-columns: (1, auto);
+
         background-position: center;
     }
 
     .bento-container {
         width: 90%;
+    }
+
+    .bento-top {
+        display: grid;
+        grid-template-columns: 1;
     }
 
     .bento-bottom {
@@ -1880,14 +1869,14 @@ WELCOME
 
 @media (max-width: 768px) {
     #soccer-math {
-        width: 90%;
+        width: 100%;
         background-size: cover;
         background-image: url(soccer/field.png);
         background-position-y: top;
     }
 
     .soccer-ball {
-        margin-bottom: 90px;
+        margin-bottom: 150px;
     }
 
     .soccer-ball img {
@@ -1908,11 +1897,8 @@ WELCOME
         position: absolute;
         top: 50%;
         transform: translate(-00%, -50%);
-        /* True centering */
         margin: 0;
-        /* Remove any margins */
         max-width: 90%;
-        /* Don't let it get too wide */
         text-align: center;
         justify-items: center;
     }
@@ -1931,13 +1917,10 @@ WELCOME
 
     .sentence-container {
         position: absolute;
-        top: 50%;
+        top: 40%;
         transform: translate(-00%, -50%);
-        /* True centering */
         margin: 0;
-        /* Remove any margins */
         max-width: 90%;
-        /* Don't let it get too wide */
         text-align: center;
         justify-items: center;
     }
