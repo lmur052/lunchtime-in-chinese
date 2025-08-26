@@ -47,6 +47,25 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+
+    .flashcards-section,
+    .matching-game-section,
+    .sentence-builder-section,
+    .gap-fill-section,
+    .soccer-math-section {
+        width: 100%;
+        /* full width of container, not viewport */
+        margin-left: 0;
+        left: 0;
+        right: 0;
+        padding-left: 10px;
+        /* optional for spacing */
+        padding-right: 10px;
+        box-sizing: border-box;
+    }
+}
+
 
 /* --------HEADER STYLES-------- */
 .hero {
@@ -115,13 +134,11 @@ body {
     .hero-content {
         max-width: 100%;
         text-align: center;
-
     }
 
     .hero-characters {
         display: flex;
         justify-content: center;
-        /* center horizontally */
         width: 100%;
     }
 
@@ -386,7 +403,7 @@ WELCOME
 
 .card-audio-btn {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
     border: none;
     border-radius: 50%;
@@ -487,7 +504,7 @@ WELCOME
 
 .bilingual-card .answer-audio-btn {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
     border: none;
     border-radius: 50%;
@@ -611,8 +628,7 @@ WELCOME
 
     /* Flashcards */
     .cards-container {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columns */
+        grid-template-columns: repeat(2, auto);
         gap: 10px;
         justify-content: center;
         justify-items: center;
@@ -625,8 +641,7 @@ WELCOME
 
     /* Matching Game */
     .english-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columns */
+        grid-template-columns: repeat(2, auto);
         gap: 10px;
         justify-content: center;
         justify-items: center;
@@ -730,7 +745,7 @@ WELCOME
     border-radius: 6px;
     background-color: #ffffff;
     font-size: 20px;
-    cursor: move;
+    cursor: grab;
     user-select: none;
     margin-top: 50px;
     margin-bottom: 20px;
@@ -753,15 +768,6 @@ WELCOME
 #scrambled-sentences .word-block:active {
     cursor: grabbing;
     transform: scale(1.05);
-}
-
-#scrambled-sentences .word-block .character {
-    font-size: 20px;
-}
-
-#scrambled-sentences .word-block .pinyin {
-    font-size: 11px;
-    color: #555;
 }
 
 #scrambled-sentences .progress {
@@ -850,7 +856,6 @@ WELCOME
     border-radius: 6px;
     background-color: #ffffff;
     font-size: 20px;
-    cursor: move;
     user-select: none;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -1059,7 +1064,7 @@ WELCOME
     border-radius: 6px;
     background-color: #daf0fa;
     font-size: 20px;
-    cursor: move;
+    cursor: grab;
     user-select: none;
     box-shadow: 0 2px 5px #979797;
 }
@@ -1144,6 +1149,16 @@ WELCOME
     .sentence-builder-container {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 0;
+        gap: 0px;
+    }
+
+    .scrambled-sentence-activity {
+        line-height: 1.2;
+    }
+
+    .english-prompt {
+        margin-top: 0;
     }
 
     .builder-image {
@@ -1152,36 +1167,34 @@ WELCOME
     }
 
     .sentence-builder-components {
-        width: 100%;
+        width: 90%;
         margin-top: 0;
     }
 
-    @media (max-width: 768px) {
 
-        .game-button-container {
-            justify-content: center;
-            justify-items: center;
-        }
-
-        .game-button {
-            display: block;
-            margin: 0 auto;
-            max-width: 300px;
-            padding: 12px 30px;
-            font-size: 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        #reset-button {
-            font-size: 12px;
-            padding: 10px 20px;
-            margin-right: 40px;
-        }
+    .game-button-container {
+        justify-content: center;
+        justify-items: center;
     }
 
+    .game-button {
+        display: block;
+        margin: 0 auto;
+        max-width: 300px;
+        padding: 12px 30px;
+        font-size: 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    #reset-button {
+        font-size: 12px;
+        padding: 10px 20px;
+        margin-right: 40px;
+    }
 }
+
 
 .completion-popup {
     position: fixed;
@@ -1264,7 +1277,10 @@ WELCOME
 
     .cards-container,
     .english-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, auto);
+        gap: 10px;
+        justify-content: center;
+        justify-items: center;
     }
 
     .game-button {
@@ -1272,44 +1288,74 @@ WELCOME
         display: block;
         width: 100%;
     }
+
+    .drag-character {
+        font-size: 16px;
+        padding: 10px 10px;
+        min-width: 50px;
+        text-align: center;
+    }
+
+    .drag-characters {
+        justify-content: center;
+        justify-items: center;
+    }
+
+    #scrambled-sentences-area .word-block .character {
+        font-size: 16px;
+    }
+
+    #scrambled-sentences-area .word-block .pinyin {
+        font-size: 12px;
+        color: #555;
+    }
 }
 
 @media (max-width: 500px) {
 
-    .cards-container,
-    .english-cards-grid {
-        grid-template-columns: 1fr;
+    .drag-character {
+        font-size: 16px;
+        padding: 10px 5px;
+        min-width: 50px;
     }
 
-    .drag-character {
-        font-size: 32px;
-        padding: 10px 20px;
-        min-width: 100px;
+    .drag-characters {
+        justify-content: center;
+        justify-items: center;
     }
 
     .game-section {
         padding: 15px;
     }
+
+    #scrambled-sentences .word-block .character {
+        font-size: 16px;
+    }
+
+    #scrambled-sentences .word-block .pinyin {
+        font-size: 12px;
+        color: #555;
+    }
 }
-
-
 
 
 /* Scrambled Sentences + Sentence Builder mobile adjustments */
 @media (max-width: 768px) {
+
     /* Limit overall width */
     #scrambled-sentences,
     .game-container {
-        padding: 15px;    /* reduce padding so it doesn’t feel cramped */
-        min-height: 500px; /* give more vertical space */
+        padding: 15px;
+        width: 90%;
+        justify-items: center;
     }
 
     /* English sentence box */
     #scrambled-sentences .english-sentence,
     #scrambled-sentences-area .english-sentence {
-        width: 100%;       /* take full width */
-        max-width: 320px;  /* prevent it from being too wide */
-        font-size: 14px;   /* scale text down */
+        width: 90%;
+        max-width: 320px;
+        font-size: 14px;
         padding: 8px 15px;
     }
 
@@ -1318,19 +1364,36 @@ WELCOME
     #scrambled-sentences-area .slot {
         width: 70px;
         height: 80px;
-        font-size: 12px;
     }
+
 
     /* Word bank items (tiles/blocks) */
     #scrambled-sentences .word-block,
-    #scrambled-sentences-area .word-block,
-    .word-piece {
-        width: 60px;
+    #scrambled-sentences-area .word-block {
+        width: 65px;
         height: 50px;
-        font-size: 16px; /* smaller characters */
-        padding: 6px 8px;
+        padding: 5px 8px;
+        text-align: center;
     }
 
+    .word-piece {
+        font-size: 16px;
+
+    }
+
+    .word-pieces {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .builder-image {
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .builder-image img {
+        max-height: 200px;
+        max-width: 80%;
     }
 
     /* Buttons */
@@ -1342,14 +1405,7 @@ WELCOME
         display: block;
     }
 
-
-
-
-
-
-
-
-
+}
 
 /* =========================================================
    GAP FILL SECTION
@@ -1464,10 +1520,10 @@ WELCOME
     padding: 12px 15px;
     border-radius: 8px;
     margin-bottom: 15px;
-    box-shadow: 0 2px 5px #979797;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 1px solid#f3cc7a;
 }
 
 .example-text {
@@ -1492,6 +1548,7 @@ WELCOME
     user-select: none;
     transition: all 0.2s;
     box-shadow: 0 3px 10px #979797;
+    text-align: center;
 
 }
 
@@ -1702,7 +1759,6 @@ WELCOME
 
 .soccer-ball {
     position: relative;
-    /* important for individual movement */
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -1719,7 +1775,7 @@ WELCOME
 
 .soccer-ball span {
     margin-top: 5px;
-    font-size: 30px;
+    font-size: 20px;
     color: #fffcf4;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
@@ -1773,7 +1829,91 @@ WELCOME
 
 .shoot {
     position: absolute;
-    /* absolute so other balls don't move */
     z-index: 10;
     transition: transform 0.8s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .bento-options {
+        display: grid;
+        grid-template-columns: (1, auto);
+        background-position: center;
+    }
+
+    .bento-container {
+        width: 90%;
+    }
+
+    .bento-bottom {
+        background-position: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #soccer-math {
+        width: 90%;
+        background-size: cover;
+        background-image: url(soccer/field.png);
+        background-position-y: top;
+    }
+
+    .soccer-ball {
+        margin-bottom: 90px;
+    }
+
+    .soccer-ball img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .soccer-ball span {
+        font-size: 20px;
+    }
+
+    #soccer-reset-button {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+
+    .sentence-container {
+        position: absolute;
+        top: 50%;
+        transform: translate(-00%, -50%);
+        /* True centering */
+        margin: 0;
+        /* Remove any margins */
+        max-width: 90%;
+        /* Don't let it get too wide */
+        text-align: center;
+        justify-items: center;
+    }
+
+}
+
+@media (max-width: 500px) {
+    #soccer-math {
+        width: 90%;
+    }
+
+    .soccer-ball img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .sentence-container {
+        position: absolute;
+        top: 50%;
+        transform: translate(-00%, -50%);
+        /* True centering */
+        margin: 0;
+        /* Remove any margins */
+        max-width: 90%;
+        /* Don't let it get too wide */
+        text-align: center;
+        justify-items: center;
+    }
+
+
+
 }

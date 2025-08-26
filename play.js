@@ -247,8 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
 
   /* ---------- SCRAMBLED SENTENCES DATA ---------- */
-const scrambledData = [
-    { english: "It's lunchtime now.", chinese: ["现在", "是", "午饭时间"], pinyin: ["xiànzài", "shì", "wǔfàn shíjiān"], englishParts: ["It's", "lunchtime", "now"] },
+  const scrambledData = [
     { english: "I run.", chinese: ["我", "跑步"], pinyin: ["wǒ", "pǎobù"], englishParts: ["I", "run"] },
     { english: "I like to run.", chinese: ["我", "喜欢", "跑步"], pinyin: ["wǒ", "xǐhuān", "pǎobù"], englishParts: ["I", "like to", "run"] },
     { english: "I would like to run.", chinese: ["我", "想", "跑步"], pinyin: ["wǒ", "xiǎng", "pǎobù"], englishParts: ["I", "would like to", "run"] },
@@ -264,7 +263,7 @@ const scrambledData = [
     { english: "I read books.", chinese: ["我", "看书"], pinyin: ["wǒ", "kànshū"], englishParts: ["I", "read books"] },
     { english: "I like to read books.", chinese: ["我", "喜欢", "看书"], pinyin: ["wǒ", "xǐhuān", "kànshū"], englishParts: ["I", "like to", "read books"] },
     { english: "I would like to read books.", chinese: ["我", "想", "看书"], pinyin: ["wǒ", "xiǎng", "kànshū"], englishParts: ["I", "would like to", "read books"] }
-];
+  ];
 
   /* ---------- GAME STATE ---------- */
   let currentSentenceIndex = 0;
@@ -565,158 +564,175 @@ const scrambledData = [
 /* =========================================================
            SOCCER
            ========================================================= */
-        const quizSets = [ 
-            { 
-                gapSentence: "我__篮球。", 
-                correct: "打", 
-                options: ["书", "吃", "打"],
-                englishSentence: "I play basketball."
-            },
-            { 
-                gapSentence: "我__足球。", 
-                correct: "踢", 
-                options: ["求", "踢", "书"],
-                englishSentence: "I play soccer."
-            },
-            { 
-                gapSentence: "我__书。", 
-                correct: "看", 
-                options: ["看", "求", "跑步"],
-                englishSentence: "I read books."
-            },
-            { 
-                gapSentence: "我__图书馆。", 
-                correct: "去", 
-                options: ["想", "去", "吃"],
-                englishSentence: "I go to the library."
-            },
-            { 
-                gapSentence: "我__打篮球。", 
-                correct: "想", 
-                options: ["书", "吃", "想"],
-                englishSentence: "I want to play basketball."
-            },
-            { 
-                gapSentence: "我__看书。", 
-                correct: "喜欢", 
-                options: ["喜欢", "提", "打"],
-                englishSentence: "I like to read books."
-            },
-            { 
-                gapSentence: "我__跑步。", 
-                correct: "想", 
-                options: ["想", "有", "看"],
-                englishSentence: "I want to run."
-            },
-            { 
-                gapSentence: "我__踢足球。", 
-                correct: "喜欢", 
-                options: ["打", "喜欢", "吃"],
-                englishSentence: "I like to play soccer."
-            },
-            { 
-                gapSentence: "我__一个球。", 
-                correct: "有", 
-                options: ["有", "跑步", "去"],
-                englishSentence: "I have a ball."
-            },
-            { 
-                gapSentence: "我__一个篮球。", 
-                correct: "有", 
-                options: ["求", "跑步", "有"],
-                englishSentence: "I have a basketball."
-            },
-        ];
+const quizSets = [
+  {
+    gapSentence: "我__篮球。",
+    correct: "打",
+    options: ["书", "吃", "打"],
+    englishSentence: "I play basketball."
+  },
+  {
+    gapSentence: "我__足球。",
+    correct: "踢",
+    options: ["求", "踢", "书"],
+    englishSentence: "I play soccer."
+  },
+  {
+    gapSentence: "我__书。",
+    correct: "看",
+    options: ["看", "求", "跑步"],
+    englishSentence: "I read books."
+  },
+  {
+    gapSentence: "我__图书馆。",
+    correct: "去",
+    options: ["想", "去", "吃"],
+    englishSentence: "I go to the library."
+  },
+  {
+    gapSentence: "我__打篮球。",
+    correct: "想",
+    options: ["书", "吃", "想"],
+    englishSentence: "I want to play basketball."
+  },
+  {
+    gapSentence: "我__看书。",
+    correct: "喜欢",
+    options: ["喜欢", "提", "打"],
+    englishSentence: "I like to read books."
+  },
+  {
+    gapSentence: "我__跑步。",
+    correct: "想",
+    options: ["想", "有", "看"],
+    englishSentence: "I want to run."
+  },
+  {
+    gapSentence: "我__踢足球。",
+    correct: "喜欢",
+    options: ["打", "喜欢", "吃"],
+    englishSentence: "I like to play soccer."
+  },
+  {
+    gapSentence: "我__一个球。",
+    correct: "有",
+    options: ["有", "跑步", "去"],
+    englishSentence: "I have a ball."
+  },
+  {
+    gapSentence: "我__一个篮球。",
+    correct: "有",
+    options: ["求", "跑步", "有"],
+    englishSentence: "I have a basketball."
+  },
+];
 
-        let currentQuestion = 0;
-        let shuffledQuizSets = shuffleArray([...quizSets]); // Create a copy to shuffle
+let currentQuestion = 0;
+let shuffledQuizSets = shuffleArray([...quizSets]); // Create a copy to shuffle
 
-        const englishSentence = document.querySelector(".soccer-english-sentence");
-        const soccerQuestion = document.querySelector(".soccer-question");
-        const soccerBallsContainer = document.querySelector(".soccer-balls");
-        const goal = document.querySelector(".soccer-goal img");
-        const resetButton = document.getElementById("soccer-reset-button");
+const englishSentence = document.querySelector(".soccer-english-sentence");
+const soccerQuestion = document.querySelector(".soccer-question");
+const soccerBallsContainer = document.querySelector(".soccer-balls");
+const goal = document.querySelector(".soccer-goal img");
+const resetButton = document.getElementById("soccer-reset-button");
 
-        function shuffleArray(array) {
-            return array
-                .map(value => ({ value, sort: Math.random() }))
-                .sort((a, b) => a.sort - b.sort)
-                .map(({ value }) => value);
-        }
+function shuffleArray(array) {
+  return array
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
 
-        function loadQuestion(index) {
-            if (index >= shuffledQuizSets.length) {
-                englishSentence.textContent = "";
-                soccerQuestion.textContent = "You're making great progress. Ready to keep practising? Click reset and keep up the good work.";
-                soccerBallsContainer.innerHTML = "";
-                return;
-            }
+function loadQuestion(index) {
+  if (index >= shuffledQuizSets.length) {
+    englishSentence.textContent = "";
+    soccerQuestion.textContent = "You're making great progress. Ready to keep practising? Click reset and keep up the good work.";
+    soccerBallsContainer.innerHTML = "";
+    return;
+  }
 
-            const current = shuffledQuizSets[index];
-            englishSentence.textContent = current.englishSentence;
-            soccerQuestion.textContent = current.gapSentence.replace("__", "__");
-            soccerBallsContainer.innerHTML = "";
+  const current = shuffledQuizSets[index];
+  englishSentence.textContent = current.englishSentence;
+  soccerQuestion.textContent = current.gapSentence.replace("__", "__");
+  soccerBallsContainer.innerHTML = "";
 
-            const shuffled = [...current.options].sort(() => 0.5 - Math.random());
+  const shuffled = [...current.options].sort(() => 0.5 - Math.random());
 
-            shuffled.forEach(option => {
-                const ball = document.createElement("div");
-                ball.className = "soccer-ball";
-                ball.dataset.answer = option;
-                ball.innerHTML = `<img src="soccer/Soccer-Ball.png" alt="Soccer Ball"><span>${option}</span>`;
-                soccerBallsContainer.appendChild(ball);
+  shuffled.forEach(option => {
+    const ball = document.createElement("div");
+    ball.className = "soccer-ball";
+    ball.dataset.answer = option;
+    ball.innerHTML = `<img src="soccer/Soccer-Ball.png" alt="Soccer Ball"><span>${option}</span>`;
+    soccerBallsContainer.appendChild(ball);
 
-                ball.addEventListener("click", () => {
-                    if (option === current.correct) {
-                        shootBall(ball);
-                    } else {
-                        wrongBall(ball);
-                    }
-                });
-            });
-        }
+    ball.addEventListener("click", () => {
+      if (option === current.correct) {
+        shootBall(ball);
+      } else {
+        wrongBall(ball);
+      }
+    });
+  });
+}
 
-        // Shake wrong answer
-        function wrongBall(ball) {
-            ball.classList.add("shake");
-            setTimeout(() => ball.classList.remove("shake"), 400);
-        }
+// Shake wrong answer
+function wrongBall(ball) {
+  ball.classList.add("shake");
+  setTimeout(() => ball.classList.remove("shake"), 400);
+}
 
-        // Shoot correct answer - Fixed to aim at center of goal
-        function shootBall(ball) {
-            // Get positions relative to the game container
-            const gameContainer = document.getElementById('soccer-math');
-            const containerRect = gameContainer.getBoundingClientRect();
-            
-            const ballRect = ball.getBoundingClientRect();
-            const goalRect = goal.getBoundingClientRect();
-            
-            // Calculate center positions relative to container
-            const ballCenterX = ballRect.left - containerRect.left + ballRect.width / 2;
-            const ballCenterY = ballRect.top - containerRect.top + ballRect.height / 2;
-            
-            const goalCenterX = goalRect.left - containerRect.left + goalRect.width / 2;
-            const goalCenterY = goalRect.top - containerRect.top + goalRect.height / 2;
-            
-            // Calculate the distance to move
-            const offsetX = goalCenterX - ballCenterX;
-            const offsetY = goalCenterY - ballCenterY;
-            
-            ball.classList.add("shoot");
-            ball.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(0.5)`;
+function shootBall(ball) {
+  // Get positions relative to the game container
+  const gameContainer = document.getElementById('soccer-math');
+  const containerRect = gameContainer.getBoundingClientRect();
 
-            setTimeout(() => {
-                currentQuestion++;
-                loadQuestion(currentQuestion);
-            }, 1000);
-        }
+  const ballRect = ball.getBoundingClientRect();
+  const goalRect = goal.getBoundingClientRect();
+  
+  // Calculate center positions relative to container
+  const ballCenterX = ballRect.left - containerRect.left + ballRect.width / 2;
+  const ballCenterY = ballRect.top - containerRect.top + ballRect.height / 2;
 
-        // Reset game
-        resetButton.addEventListener("click", () => {
-            currentQuestion = 0;
-            shuffledQuizSets = shuffleArray([...quizSets]); // shuffle questions again
-            loadQuestion(currentQuestion);
-        });
+  const goalCenterX = goalRect.left - containerRect.left + goalRect.width / 2;
+  const goalCenterY = goalRect.top - containerRect.top + goalRect.height / 2;
 
-        // Initialize first question
-        loadQuestion(currentQuestion);
+  // Calculate the distance to move
+  const offsetX = goalCenterX - ballCenterX;
+  const offsetY = goalCenterY - ballCenterY;
+
+  // First position the ball absolutely to maintain consistent starting point
+  const ballComputedStyle = window.getComputedStyle(ball);
+  const originalPosition = ballComputedStyle.position;
+  const originalLeft = ballComputedStyle.left;
+  const originalTop = ballComputedStyle.top;
+  
+  // Temporarily make ball positioned absolutely at its current location
+  ball.style.position = 'absolute';
+  ball.style.left = `${ballRect.left - containerRect.left}px`;
+  ball.style.top = `${ballRect.top - containerRect.top}px`;
+  
+  ball.classList.add("shoot");
+  ball.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(0.5)`;
+
+  setTimeout(() => {
+    // Reset positioning for next question
+    ball.style.position = originalPosition;
+    ball.style.left = originalLeft;
+    ball.style.top = originalTop;
+    ball.style.transform = '';
+    ball.classList.remove("shoot");
+    
+    currentQuestion++;
+    loadQuestion(currentQuestion);
+  }, 1000);
+}
+
+// Reset game
+resetButton.addEventListener("click", () => {
+  currentQuestion = 0;
+  shuffledQuizSets = shuffleArray([...quizSets]); // shuffle questions again
+  loadQuestion(currentQuestion);
+});
+
+// Initialize first question
+loadQuestion(currentQuestion);

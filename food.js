@@ -374,7 +374,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------- SENTENCE DATA ---------- */
   const sentences = [
-    { chinese: ["现在", "是", "午饭时间。"], english: "It's lunchtime now." },
     { chinese: ["我们", "一起", "吃饭。"], english: "We eat together." },
     { chinese: ["我们", "一起", "去", "吃饭。"], english: "We are going to eat together." },
     { chinese: ["我", "吃", "米饭。"], english: "I eat rice." },
