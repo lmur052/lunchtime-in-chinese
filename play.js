@@ -688,7 +688,7 @@ function shootBall(ball) {
 
   const ballRect = ball.getBoundingClientRect();
   const goalRect = goal.getBoundingClientRect();
-  
+
   // Calculate center positions relative to container
   const ballCenterX = ballRect.left - containerRect.left + ballRect.width / 2;
   const ballCenterY = ballRect.top - containerRect.top + ballRect.height / 2;
@@ -705,12 +705,12 @@ function shootBall(ball) {
   const originalPosition = ballComputedStyle.position;
   const originalLeft = ballComputedStyle.left;
   const originalTop = ballComputedStyle.top;
-  
+
   // Temporarily make ball positioned absolutely at its current location
   ball.style.position = 'absolute';
   ball.style.left = `${ballRect.left - containerRect.left}px`;
   ball.style.top = `${ballRect.top - containerRect.top}px`;
-  
+
   ball.classList.add("shoot");
   ball.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(0.5)`;
 
@@ -721,7 +721,7 @@ function shootBall(ball) {
     ball.style.top = originalTop;
     ball.style.transform = '';
     ball.classList.remove("shoot");
-    
+
     currentQuestion++;
     loadQuestion(currentQuestion);
   }, 1000);
